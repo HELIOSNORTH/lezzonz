@@ -88,6 +88,11 @@
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 		text-rendering: optimizeLegibility;
+		overflow-x: clip;
+	}
+
+	:where(.grid) > * {
+		min-width: 0;
 	}
 
 	::selection {
@@ -234,7 +239,6 @@
 }
 
 @utility noise {
-	position: relative;
 	&::after {
 		content: '';
 		position: absolute;

@@ -45,14 +45,14 @@
 		<div class="absolute top-[26rem] left-[30%] size-[26rem] rounded-full bg-[#5e5ce6]/15 blur-[120px]"></div>
 	</div>
 
-	<div class="mx-auto grid max-w-6xl items-center gap-12 px-5 pt-6 pb-10 md:grid-cols-[1.15fr_1fr] md:pt-12 md:pb-20">
+	<div class="mx-auto grid max-w-6xl grid-cols-[minmax(0,1fr)] items-center gap-12 px-5 pt-6 pb-10 md:grid-cols-[1.15fr_1fr] md:pt-12 md:pb-20">
 		<div class="animate-rise">
 			<a href="/gavekort#partnere" class="glass pressable inline-flex items-center gap-2 rounded-full py-1.5 pr-3 pl-1.5 text-[0.85rem] font-medium">
 				<span class="rounded-full bg-brand px-2 py-0.5 text-[0.75rem] font-bold text-white">Nyt</span>
 				Gavekort i 12 udvalgte butikker
 				<ChevronRight class="size-4 text-label-2" />
 			</a>
-			<h1 class="mt-6 font-display text-[2.9rem] leading-[1.02] font-bold tracking-[-0.045em] text-balance sm:text-[3.6rem] lg:text-[4.4rem]">
+			<h1 class="mt-6 font-display text-[2.6rem] leading-[1.02] font-bold tracking-[-0.045em] text-balance min-[400px]:text-[2.9rem] sm:text-[3.6rem] lg:text-[4.4rem]">
 				Lær noget nyt.<br />
 				<span class="bg-gradient-to-r from-[#ff9f0a] via-brand to-[#ff375f] bg-clip-text text-transparent">I virkeligheden.</span>
 			</h1>
@@ -88,14 +88,14 @@
 			</div>
 		</div>
 
-		<div class="relative hidden h-[30rem] md:block" aria-hidden="true">
+		<div class="relative hidden h-[34rem] md:block" aria-hidden="true">
 			{#each heroCards as course, index (course.slug)}
 				<a
 					href="/kurser/{course.slug}"
-					class="group glass-strong absolute w-60 overflow-hidden rounded-[1.6rem] p-2 animate-float"
+					class="group glass-strong absolute w-56 overflow-hidden rounded-[1.6rem] p-2 animate-float"
 					style:--r="{[-7, 5, -3][index]}deg"
-					style:left={['2%', '46%', '18%'][index]}
-					style:top={['4%', '16%', '52%'][index]}
+					style:left={['0%', '52%', '22%'][index]}
+					style:top={['0%', '4%', '52%'][index]}
 					style:animation-delay="{index * -2.3}s"
 					style:z-index={[1, 2, 3][index]}
 					tabindex="-1"
@@ -188,7 +188,7 @@
 
 <section class="mx-auto mt-20 max-w-6xl px-5 md:mt-28">
 	<a href="/kurser/{spotlight.slug}" class="group relative block overflow-hidden rounded-[2rem] shadow-float">
-		<CourseCover course={spotlight} class="absolute inset-0" emojiSize="clamp(8rem, 22vw, 15rem)" />
+		<div class="absolute inset-0"><CourseCover course={spotlight} class="h-full" emojiSize="clamp(8rem, 22vw, 15rem)" emojiClass="items-start justify-center pt-10 md:items-center md:justify-end md:pt-0 md:pr-[10%]" /></div>
 		<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent md:bg-gradient-to-r md:from-black/65 md:via-black/25"></div>
 		<div class="relative flex min-h-[28rem] flex-col justify-end p-6 text-white md:min-h-[30rem] md:max-w-[55%] md:justify-center md:p-12">
 			<span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-white/20 px-3 py-1 text-[0.8rem] font-semibold backdrop-blur-md">

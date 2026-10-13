@@ -4,8 +4,9 @@
 	let {
 		course,
 		emojiSize = '4.5rem',
+		emojiClass = 'place-items-center',
 		class: className = ''
-	}: { course: Pick<Course, 'gradient' | 'emoji' | 'title'>; emojiSize?: string; class?: string } = $props();
+	}: { course: Pick<Course, 'gradient' | 'emoji' | 'title'>; emojiSize?: string; emojiClass?: string; class?: string } = $props();
 
 	const background = $derived.by(() => {
 		const [light, mid, deep] = course.gradient;
@@ -20,7 +21,7 @@
 
 <div class="noise relative overflow-hidden {className}" style:background role="img" aria-label={course.title}>
 	<div class="absolute top-[-30%] right-[-20%] size-[80%] rounded-full bg-white/20 blur-3xl"></div>
-	<div class="absolute inset-0 grid place-items-center">
+	<div class="absolute inset-0 grid {emojiClass}">
 		<span
 			class="cover-emoji select-none"
 			style:font-size={emojiSize}

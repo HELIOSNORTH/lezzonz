@@ -78,3 +78,15 @@ export function filterCourses({ query, category, city, maxPrice, sort = 'populae
 	};
 	return matches.sort(sorters[sort]);
 }
+
+export function courseContext(slug: string) {
+	const course = getCourse(slug);
+	if (!course) return null;
+	return { course, host: getHost(course.host)!, category: getCategory(course.category) };
+}
+
+export function hostContext(slug: string) {
+	const host = getHost(slug);
+	if (!host) return null;
+	return { host, courses: coursesByHost(host.slug) };
+}
