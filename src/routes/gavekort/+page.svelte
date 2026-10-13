@@ -91,14 +91,14 @@
 		</p>
 	</div>
 
-	<form onsubmit={buy} novalidate class="mt-10 grid gap-8 lg:grid-cols-[1fr_440px] lg:gap-12">
-		<div class="lg:order-2">
-			<div class="lg:sticky lg:top-28">
-				<GiftCardVisual amount={value} {design} recipient={recipient || 'Modtager'} sender={sender} scope={scopeLabel} qrValue="https://lezzonz.dk/gavekort" />
+	<form onsubmit={buy} novalidate class="mt-10 flex flex-col gap-6 lg:grid lg:grid-cols-[1fr_440px] lg:gap-12">
+		<div class="contents lg:col-start-2 lg:row-start-1 lg:block">
+			<div class="contents lg:sticky lg:top-28 lg:block">
+				<GiftCardVisual class="order-1" amount={value} {design} recipient={recipient || 'Modtager'} sender={sender} scope={scopeLabel} qrValue="https://lezzonz.dk/gavekort" />
 				{#if message}
-					<div class="card mt-4 p-5 text-[0.95rem] leading-relaxed italic">«{message}»</div>
+					<div class="card order-1 p-5 lg:mt-4 text-[0.95rem] leading-relaxed italic">«{message}»</div>
 				{/if}
-				<div class="card mt-4 p-5">
+				<div class="card order-3 p-5 lg:mt-4">
 					<div class="flex items-center justify-between text-[1.1rem] font-bold"><span>I alt</span><span>{formatPrice(value)}</span></div>
 					<div class="mt-4 grid grid-cols-3 gap-2" role="radiogroup" aria-label="Betalingsmetode">
 						{#each [
@@ -122,7 +122,7 @@
 			</div>
 		</div>
 
-		<div class="space-y-6 lg:order-1">
+		<div class="order-2 space-y-6 lg:col-start-1 lg:row-start-1">
 			<section class="card p-6">
 				<h2 class="text-[1.15rem] font-semibold">1. Hvad skal gavekortet gælde til?</h2>
 				<div class="mt-4 grid grid-cols-3 rounded-2xl bg-fill-2 p-1">

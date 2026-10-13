@@ -39,8 +39,8 @@
 	<title>For undervisere · Lezzonz</title>
 </svelte:head>
 
-<section class="relative mx-auto max-w-6xl overflow-x-clip px-5">
-	<div class="pointer-events-none absolute -top-32 left-1/2 -z-10 h-[30rem] w-[60rem] -translate-x-1/2 rounded-full bg-brand/15 blur-[120px]"></div>
+<section class="relative mx-auto max-w-6xl px-5">
+	<div class="pointer-events-none absolute -top-32 left-1/2 -z-10 h-[30rem] w-[min(60rem,100vw)] -translate-x-1/2 rounded-full bg-brand/15 blur-[120px]"></div>
 	<div class="mx-auto max-w-3xl pt-4 text-center animate-rise md:pt-10">
 		<span class="text-[0.85rem] font-semibold tracking-wide text-accent uppercase">For undervisere og butikker</span>
 		<h1 class="mt-3 font-display text-[2.8rem] leading-[1.02] font-bold tracking-[-0.045em] text-balance md:text-[4.2rem]">Fyld dine hold.<br />Vi klarer resten.</h1>

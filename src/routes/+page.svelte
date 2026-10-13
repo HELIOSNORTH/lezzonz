@@ -188,9 +188,9 @@
 
 <section class="mx-auto mt-20 max-w-6xl px-5 md:mt-28">
 	<a href="/kurser/{spotlight.slug}" class="group relative block overflow-hidden rounded-[2rem] shadow-float">
-		<div class="absolute inset-0"><CourseCover course={spotlight} class="h-full" emojiSize="clamp(8rem, 22vw, 15rem)" emojiClass="items-start justify-center pt-10 md:items-center md:justify-end md:pt-0 md:pr-[10%]" /></div>
+		<div class="absolute inset-0"><CourseCover course={spotlight} class="h-full" emojiSize="clamp(7rem, 22vw, 15rem)" emojiClass="items-start justify-center pt-14 md:items-center md:justify-end md:pt-0 md:pr-[10%]" /></div>
 		<div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent md:bg-gradient-to-r md:from-black/65 md:via-black/25"></div>
-		<div class="relative flex min-h-[28rem] flex-col justify-end p-6 text-white md:min-h-[30rem] md:max-w-[55%] md:justify-center md:p-12">
+		<div class="relative flex min-h-[38rem] flex-col justify-end p-6 text-white md:min-h-[30rem] md:max-w-[55%] md:justify-center md:p-12">
 			<span class="inline-flex w-fit items-center gap-1.5 rounded-full bg-white/20 px-3 py-1 text-[0.8rem] font-semibold backdrop-blur-md">
 				<Sparkles class="size-3.5" /> Månedens underviser
 			</span>
@@ -206,7 +206,7 @@
 					<div class="font-semibold">{spotlightHost.person}</div>
 					<div class="text-white/75">{spotlightHost.name}</div>
 				</div>
-				<span class="ml-auto inline-flex items-center gap-2 rounded-full bg-white px-5 py-3 font-semibold text-black transition-transform duration-300 group-hover:translate-x-1 md:ml-6">
+				<span class="ml-auto inline-flex shrink-0 items-center gap-2 rounded-full bg-white px-5 py-3 whitespace-nowrap font-semibold text-black transition-transform duration-300 group-hover:translate-x-1 md:ml-6">
 					Fra {formatPrice(spotlight.price)} <ArrowRight class="size-4" />
 				</span>
 			</div>

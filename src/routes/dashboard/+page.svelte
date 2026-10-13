@@ -118,9 +118,9 @@
 				<h2 class="font-semibold">Omsætning pr. måned</h2>
 				<span class="text-[0.85rem] text-label-2">Seneste 6 måneder</span>
 			</div>
-			<div class="relative mt-6 h-56" role="img" aria-label="Søjlediagram over omsætning de seneste seks måneder">
+			<div class="relative mt-6 h-[17rem]" role="img" aria-label="Søjlediagram over omsætning de seneste seks måneder">
 				{#each gridLines as line (line)}
-					<div class="absolute inset-x-0 flex translate-y-1/2 items-center gap-2" style:bottom="calc({(line / chartMax) * 100}% * (200 / 224) + 24px)">
+					<div class="absolute inset-x-0 flex translate-y-1/2 items-center gap-2" style:bottom="calc({(line / chartMax) * 100}% * (248 / 272) + 24px)">
 						<span class="w-10 shrink-0 text-right text-[0.72rem] text-label-3 tabular-nums">{line === 0 ? '0' : `${line / 1000}k`}</span>
 						<span class="h-px flex-1 bg-separator"></span>
 					</div>

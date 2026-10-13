@@ -53,9 +53,9 @@
 	</div>
 
 	<div class="mt-6 grid grid-cols-3 gap-3">
-		<div class="card rounded-3xl p-4"><div class="font-display text-[1.3rem] font-bold tracking-tight sm:text-[1.8rem]">{completed.length}</div><div class="text-[0.85rem] text-label-2">Gennemførte kurser</div></div>
-		<div class="card rounded-3xl p-4"><div class="font-display text-[1.3rem] font-bold tracking-tight sm:text-[1.8rem]">{demo.state.certificates.length}</div><div class="text-[0.85rem] text-label-2">Kursusbeviser</div></div>
-		<div class="card rounded-3xl p-4"><div class="font-display text-[1.3rem] font-bold tracking-tight sm:text-[1.8rem]">{formatPrice(giftBalance)}</div><div class="text-[0.85rem] text-label-2">På gavekort</div></div>
+		<div class="card rounded-3xl p-4"><div class="font-display text-[1.3rem] font-bold tracking-tight sm:text-[1.8rem]">{completed.length}</div><div class="text-[0.8rem] leading-tight text-label-2">Gennemførte kurser</div></div>
+		<div class="card rounded-3xl p-4"><div class="font-display text-[1.3rem] font-bold tracking-tight sm:text-[1.8rem]">{demo.state.certificates.length}</div><div class="text-[0.8rem] leading-tight text-label-2">Kursus&shy;beviser</div></div>
+		<div class="card rounded-3xl p-4"><div class="font-display text-[1.3rem] font-bold tracking-tight sm:text-[1.8rem]">{formatPrice(giftBalance)}</div><div class="text-[0.8rem] leading-tight text-label-2">På gavekort</div></div>
 	</div>
 
 	<div class="no-scrollbar sticky top-[calc(env(safe-area-inset-top)+4.6rem)] z-30 -mx-5 mt-8 overflow-x-auto px-5 py-2 md:top-[5.4rem]">

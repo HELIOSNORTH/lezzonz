@@ -137,7 +137,7 @@ class DemoStore {
 			bookingId: booking.id,
 			courseSlug: booking.courseSlug,
 			holderName: participant.name,
-			completedAt: new Date().toISOString()
+			completedAt: booking.startsAt
 		}));
 		this.state.certificates.unshift(...issued);
 		return issued;
