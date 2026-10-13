@@ -56,7 +56,7 @@
 				</div>
 				<h1 class="mt-5 font-display text-[2.4rem] font-bold tracking-[-0.035em] md:text-[3rem]">Du er booket!</h1>
 				<p class="mx-auto mt-2 max-w-md text-[1.1rem] text-label-2">
-					Vi har sendt en bekræftelse til {booking.participants[0].email}. Vi glæder os til at se dig, {booking.participants[0].name.split(' ')[0]}.
+					Bekræftelse sendt til {booking.participants[0].email}
 				</p>
 			</div>
 		{:else}
@@ -66,7 +66,7 @@
 
 		<div class="mt-10 overflow-hidden rounded-[2rem] bg-surface shadow-float animate-rise">
 			<div class="relative">
-				<CourseCover {course} class="h-40 md:h-48" emojiSize="4.5rem" />
+				<CourseCover {course} class="h-40 md:h-48" />
 				<div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-5 pt-12 text-white">
 					<div class="text-[0.8rem] font-semibold tracking-wide uppercase opacity-85">{host.name}</div>
 					<div class="text-[1.4rem] leading-tight font-bold tracking-tight">{course.title}</div>
@@ -123,26 +123,23 @@
 				<h2 class="text-[1.2rem] font-semibold">Hvad sker der nu?</h2>
 				<ol class="mt-5 space-y-5">
 					{#each [
-						{ icon: Mail, title: 'Bekræftelse sendt', text: `Billet og kvittering ligger i ${booking.participants[0].email}.`, done: true },
-						{ icon: CalendarPlus, title: 'Påmindelse dagen før', text: 'Vi sender praktisk info, og hvad du skal medbringe.', done: false },
-						{ icon: QrIcon, title: 'Mød op og check ind', text: `${host.person} scanner din billet ved ankomst.`, done: false },
-						{ icon: Award, title: 'Kursusbevis i indbakken', text: 'Når kurset er gennemført, får du automatisk dit personlige kursusbevis.', done: false }
+						{ icon: Mail, title: 'Bekræftelse sendt', done: true },
+						{ icon: CalendarPlus, title: 'Påmindelse dagen før', done: false },
+						{ icon: QrIcon, title: 'Mød op og vis billetten', done: false },
+						{ icon: Award, title: 'Få dit kursusbevis', done: false }
 					] as step (step.title)}
 						{@const Icon = step.icon}
 						<li class="flex gap-4">
 							<span class="grid size-10 shrink-0 place-items-center rounded-full {step.done ? 'bg-success text-white' : 'bg-fill-2 text-label-2'}">
 								<Icon class="size-5" />
 							</span>
-							<span>
-								<span class="block font-semibold">{step.title}</span>
-								<span class="text-[0.92rem] text-label-2">{step.text}</span>
-							</span>
+							<span class="self-center font-semibold">{step.title}</span>
 						</li>
 					{/each}
 				</ol>
 				<div class="mt-8 flex flex-col items-start gap-3 rounded-2xl border border-dashed border-separator p-4 sm:flex-row sm:items-center">
 					<span class="rounded-full bg-fill px-2 py-0.5 text-[0.72rem] font-bold tracking-wide text-label-2 uppercase">Demo</span>
-					<span class="flex-1 text-[0.9rem] text-label-2">Spring frem i tiden og se, hvordan kursusbeviset ser ud.</span>
+					<span class="flex-1"></span>
 					<button onclick={simulateCompleted} class="btn btn-primary h-10 px-4 text-[0.9rem]"><Sparkles class="size-4" />Simulér gennemført</button>
 				</div>
 			</div>

@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { Award, CalendarDays, Check, ChevronRight, Gift, Plus, QrCode as QrIcon, Star, TrendingUp, Users, Wallet } from '@lucide/svelte';
+	import { Award, CalendarDays, Check, Gift, Plus, QrCode as QrIcon, Star, TrendingUp, Users, Wallet } from '@lucide/svelte';
 	import { coursesByHost, datedSessions, getHost } from '#lib/catalog.ts';
 	import { formatFullDate, formatNumber, formatPrice, formatShortDate, formatTime } from '#lib/format.ts';
 	import { showToast } from '#lib/toast.svelte.ts';
@@ -57,10 +57,10 @@
 	}
 
 	const kpis = [
-		{ icon: TrendingUp, label: 'Omsætning denne måned', value: formatPrice(280_000), delta: '+3,1 % siden sidste måned' },
-		{ icon: Users, label: 'Deltagere denne måned', value: formatNumber(400), delta: '+18 siden sidste måned' },
-		{ icon: CalendarDays, label: 'Fyldningsgrad', value: '94 %', delta: '27 af 29 hold udsolgt' },
-		{ icon: Star, label: 'Gennemsnitlig bedømmelse', value: '4,9', delta: '1.284 anmeldelser' }
+		{ icon: TrendingUp, label: 'Omsætning', value: formatPrice(280_000) },
+		{ icon: Users, label: 'Deltagere', value: formatNumber(400) },
+		{ icon: CalendarDays, label: 'Fyldningsgrad', value: '94 %' },
+		{ icon: Star, label: 'Bedømmelse', value: '4,9' }
 	];
 
 	const payouts = [
@@ -82,11 +82,6 @@
 </svelte:head>
 
 <section class="mx-auto max-w-6xl px-5">
-	<div class="mb-6 flex items-center gap-2 rounded-2xl bg-brand/10 px-4 py-2.5 text-[0.88rem] font-medium text-accent">
-		<span class="rounded-full bg-brand px-2 py-0.5 text-[0.7rem] font-bold text-white uppercase">Demo</span>
-		Sådan ser underviser-dashboardet ud for {host.name}.
-	</div>
-
 	<div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
 		<div class="flex items-center gap-4">
 			<Avatar initials={host.initials} gradient={host.gradient} size={60} />
@@ -107,7 +102,6 @@
 			<div class="card rounded-3xl p-5">
 				<div class="flex items-center gap-2 text-[0.82rem] text-label-2"><Icon class="size-4" />{kpi.label}</div>
 				<div class="mt-2 font-display text-[1.7rem] leading-tight font-bold tracking-tight md:text-[2rem]">{kpi.value}</div>
-				<div class="mt-1 text-[0.8rem] text-label-2">{kpi.delta}</div>
 			</div>
 		{/each}
 	</div>
@@ -187,7 +181,7 @@
 						onclick={() => (selectedId = item.session.id)}
 						class="pressable flex w-full items-center gap-3 rounded-2xl border-2 p-3 text-left transition-colors {selectedId === item.session.id ? 'border-brand bg-brand/5' : 'border-transparent bg-fill-2 hover:bg-fill'}"
 					>
-						<CourseCover course={item.course} class="size-11 shrink-0 rounded-xl" emojiSize="1.4rem" />
+						<CourseCover course={item.course} class="size-11 shrink-0 rounded-xl" />
 						<span class="min-w-0 flex-1">
 							<span class="block truncate text-[0.92rem] font-semibold">{item.course.title}</span>
 							<span class="text-[0.8rem] text-label-2">{formatShortDate(item.session.date)} · {formatTime(item.session.date)}</span>
@@ -252,7 +246,7 @@
 	<div class="card mt-4 p-6">
 		<div class="flex items-center justify-between">
 			<h2 class="flex items-center gap-2 font-semibold"><Wallet class="size-4 text-accent" />Udbetalinger</h2>
-			<span class="text-[0.85rem] text-label-2">Hver mandag til konto ****4821</span>
+			<span class="text-[0.85rem] text-label-2">Hver mandag</span>
 		</div>
 		<table class="mt-4 w-full text-left text-[0.92rem]">
 			<thead class="text-[0.8rem] text-label-2">
@@ -270,6 +264,5 @@
 				{/each}
 			</tbody>
 		</table>
-		<a href="/for-undervisere" class="mt-4 inline-flex items-center gap-1 text-[0.9rem] font-semibold text-accent">Læs om priser og gebyrer<ChevronRight class="size-4" /></a>
 	</div>
 </section>

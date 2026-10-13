@@ -81,7 +81,7 @@
 								<span class="text-[0.7rem] font-bold tracking-wider text-accent">{formatMonth(date)}</span>
 								<span class="font-display text-[1.7rem] leading-none font-bold">{formatDay(date)}</span>
 							</div>
-							<CourseCover {course} class="hidden size-16 shrink-0 rounded-2xl sm:block" emojiSize="2rem" />
+							<CourseCover {course} class="hidden size-16 shrink-0 rounded-2xl sm:block" />
 							<div class="min-w-0 flex-1">
 								<div class="text-[0.8rem] font-semibold text-accent">{formatRelativeDay(date)} · {formatTime(date)}</div>
 								<div class="truncate font-semibold">{course.title}</div>
@@ -95,7 +95,6 @@
 				<div class="card flex flex-col items-center p-12 text-center">
 					<div class="text-[3rem]">🗓️</div>
 					<h2 class="mt-2 text-lg font-semibold">Ingen kommende kurser</h2>
-					<p class="mt-1 text-label-2">Find dit næste hold og kom i gang.</p>
 					<a href="/kurser" class="btn btn-primary mt-5">Udforsk kurser</a>
 				</div>
 			{/if}
@@ -104,7 +103,7 @@
 				{#each completed as { booking, course, date } (booking.id)}
 					<div class="card p-4">
 						<div class="flex items-center gap-4">
-							<CourseCover {course} class="size-16 shrink-0 rounded-2xl" emojiSize="2rem" />
+							<CourseCover {course} class="size-16 shrink-0 rounded-2xl" />
 							<div class="min-w-0 flex-1">
 								<div class="truncate font-semibold">{course.title}</div>
 								<div class="text-[0.85rem] text-label-2">Gennemført {formatFullDate(date)}</div>
@@ -113,7 +112,7 @@
 						</div>
 						<div class="mt-3 flex flex-wrap gap-2">
 							{#each demo.certificatesFor(booking.id) as certificate (certificate.id)}
-								<a href="/bevis/{certificate.id}" class="pressable inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#fff3df] to-[#ffe6c4] py-2 pr-4 pl-2 text-[0.88rem] font-semibold text-[#7a4f12] dark:from-[#3a2c18] dark:to-[#2e2214] dark:text-[#ffd29d]">
+								<a href="/bevis/{certificate.id}" class="pressable inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-[#fff3df] to-[#ffe6c4] py-2 pr-4 pl-2 text-[0.88rem] font-semibold text-[#7a4f12]">
 									<span class="grid size-7 place-items-center rounded-full bg-gradient-to-br from-[#ffd29d] to-[#d9822b] text-white"><Award class="size-4" /></span>
 									Kursusbevis · {certificate.holderName}
 								</a>
@@ -121,7 +120,7 @@
 						</div>
 					</div>
 				{:else}
-					<div class="card p-12 text-center text-label-2">Når du har gennemført et kursus, finder du dit kursusbevis her.</div>
+					<div class="card p-12 text-center text-label-2">Ingen gennemførte kurser endnu</div>
 				{/each}
 			</div>
 		{:else if tab === 'gavekort'}
@@ -143,13 +142,12 @@
 					{#each favorites as course (course.slug)}<CourseCard {course} />{/each}
 				</div>
 			{:else}
-				<div class="card p-12 text-center text-label-2">Tryk på hjertet på et kursus for at gemme det her.</div>
+				<div class="card p-12 text-center text-label-2">Ingen favoritter endnu</div>
 			{/if}
 		{/if}
 	</div>
 
 	<div class="mt-16 flex flex-col items-center gap-2 text-center">
 		<button onclick={resetDemo} class="inline-flex items-center gap-1.5 text-[0.9rem] font-medium text-label-2 hover:text-label"><RotateCcw class="size-4" />Nulstil demoen</button>
-		<p class="max-w-sm text-[0.8rem] text-label-3">Demoen gemmer bookinger, gavekort og favoritter i denne browser.</p>
 	</div>
 </section>

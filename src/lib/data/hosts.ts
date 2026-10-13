@@ -46,53 +46,8 @@ export const hosts: Host[] = [
 		bio: 'Sebastian har stået bag baren i København, London og New York. Nu underviser han i klassiske cocktails, teknik og værtskab.',
 		since: 2021,
 		initials: 'SF',
-		gradient: ['#4c3a8f', '#1d1440']
-	},
-	{
-		slug: 'korn-og-co',
-		name: 'Korn & Co. Bageri',
-		person: 'Line Mortensen',
-		role: 'Bager',
-		city: 'Odense',
-		bio: 'Et økologisk håndværksbageri midt i Odense. Line har bagt surdejsbrød siden hun var 16 og elsker at gøre andre trygge ved dejen.',
-		since: 2017,
-		initials: 'LM',
-		gradient: ['#e9c58f', '#a5713a'],
-		giftCardPartner: { storeName: 'Korn & Co., Kongensgade', address: 'Kongensgade 63, 5000 Odense C' }
-	},
-	{
-		slug: 'umami-koekkenet',
-		name: 'Umami Køkkenet',
-		person: 'Kenji Nakamura',
-		role: 'Sushikok',
-		city: 'Aarhus',
-		bio: 'Kenji er uddannet i Osaka og har drevet sushirestaurant i Aarhus i ti år. Hans workshops er rolige, præcise og meget lækre.',
-		since: 2020,
-		initials: 'KN',
-		gradient: ['#ff8a80', '#263238']
-	},
-	{
-		slug: 'vinkaelderen',
-		name: 'Vinkælderen på Vesterbro',
-		person: 'Camilla Brandt',
-		role: 'Sommelier',
-		city: 'København',
-		bio: 'Camilla er uddannet sommelier og importerer naturvin direkte fra små producenter i Frankrig og Italien.',
-		since: 2015,
-		initials: 'CB',
-		gradient: ['#b33951', '#4a0f1f'],
-		giftCardPartner: { storeName: 'Vinkælderen', address: 'Istedgade 74, 1650 København V' }
-	},
-	{
-		slug: 'casa-pasta',
-		name: 'Casa Pasta',
-		person: 'Giulia Bianchi',
-		role: 'Kok',
-		city: 'Vejle',
-		bio: 'Giulia kommer fra Bologna og laver frisk pasta hver morgen i sin lille trattoria ved Vejle Fjord.',
-		since: 2022,
-		initials: 'GB',
-		gradient: ['#ffe08a', '#e5a50a']
+		gradient: ['#4c3a8f', '#1d1440'],
+		giftCardPartner: { storeName: 'Bar Nord', address: 'Gothersgade 33, 1123 København K' }
 	},
 	{
 		slug: 'nordic-track-academy',
@@ -107,50 +62,6 @@ export const hosts: Host[] = [
 		giftCardPartner: { storeName: 'Nordic Track Academy, depotet', address: 'Ringvejen 5, 8600 Silkeborg' }
 	},
 	{
-		slug: 'roskilde-karting',
-		name: 'Roskilde Karting',
-		person: 'Nikolaj Bach',
-		role: 'Kartinstruktør',
-		city: 'Roskilde',
-		bio: 'Udendørs gokartbane med træning for både nybegyndere og dem, der vil skære sekunder af omgangstiden.',
-		since: 2012,
-		initials: 'NB',
-		gradient: ['#ffd60a', '#ff453a']
-	},
-	{
-		slug: 'padelhuset-aarhus',
-		name: 'Padelhuset Aarhus',
-		person: 'Emma Thorsen',
-		role: 'Padeltræner',
-		city: 'Aarhus',
-		bio: 'Seks indendørs baner og et team af certificerede trænere. Emma står for begynderholdene.',
-		since: 2020,
-		initials: 'ET',
-		gradient: ['#30d158', '#0b6e4f']
-	},
-	{
-		slug: 'kuldegys',
-		name: 'Kuldegys',
-		person: 'Rasmus Holt',
-		role: 'Saunagus-mester',
-		city: 'Aarhus',
-		bio: 'Vinterbadning og saunagus ved havnen i Aarhus. Rasmus er uddannet gusmester og livredder.',
-		since: 2021,
-		initials: 'RH',
-		gradient: ['#9bd7ff', '#3a6ea5']
-	},
-	{
-		slug: 'fyns-golfakademi',
-		name: 'Fyns Golfakademi',
-		person: 'Peter Lauridsen',
-		role: 'PGA-pro',
-		city: 'Odense',
-		bio: 'Peter har undervist i golf i over 15 år og har hjulpet flere hundrede nye golfere til deres første runde.',
-		since: 2010,
-		initials: 'PL',
-		gradient: ['#a8e063', '#2f7d32']
-	},
-	{
 		slug: 'skovens-spisekammer',
 		name: 'Skovens Spisekammer',
 		person: 'Karen Vestergaard',
@@ -159,40 +70,8 @@ export const hosts: Host[] = [
 		bio: 'Karen har samlet svampe i Rold Skov, siden hun var barn. I dag er hun uddannet svampekontrollant og naturvejleder.',
 		since: 2013,
 		initials: 'KV',
-		gradient: ['#c5a880', '#53412c']
-	},
-	{
-		slug: 'gudenaa-fluefiskeri',
-		name: 'Gudenå Fluefiskeri',
-		person: 'Jens Overgaard',
-		role: 'Fiskeguide',
-		city: 'Silkeborg',
-		bio: 'Jens har guidet fluefiskere på Gudenåen i 25 år og kender hvert et sving af åen.',
-		since: 2001,
-		initials: 'JO',
-		gradient: ['#7fd1ae', '#1f5c4a']
-	},
-	{
-		slug: 'latterfabrikken',
-		name: 'Latterfabrikken',
-		person: 'Simon Krogh',
-		role: 'Komiker',
-		city: 'København',
-		bio: 'Simon har turneret med stand-up i ti år og underviser nu i timing, tekst og scenenærvær.',
-		since: 2019,
-		initials: 'SK',
-		gradient: ['#ffcc00', '#ff6b00']
-	},
-	{
-		slug: 'lys-og-linse',
-		name: 'Lys & Linse',
-		person: 'Freja Nørgaard',
-		role: 'Fotograf',
-		city: 'København',
-		bio: 'Freja er freelancefotograf for flere danske magasiner og holder fotowalks i Københavns gader.',
-		since: 2018,
-		initials: 'FN',
-		gradient: ['#5e5ce6', '#0b0b3b']
+		gradient: ['#c5a880', '#53412c'],
+		giftCardPartner: { storeName: 'Skovens Spisekammer', address: 'Rebildvej 25, 9520 Skørping' }
 	},
 	{
 		slug: 'blomstervaerkstedet',
@@ -219,42 +98,6 @@ export const hosts: Host[] = [
 		giftCardPartner: { storeName: 'Garnhuset, Vestergade', address: 'Vestergade 31, 5000 Odense C' }
 	},
 	{
-		slug: 'kransebinderiet',
-		name: 'Kransebinderiet',
-		person: 'Lotte Winther',
-		role: 'Florist',
-		city: 'Roskilde',
-		bio: 'Lotte binder kranse og dekorationer af materialer fra skov og strand — og viser dig, hvordan du gør det selv.',
-		since: 2016,
-		initials: 'LW',
-		gradient: ['#5fa777', '#1e4d2b'],
-		giftCardPartner: { storeName: 'Kransebinderiet', address: 'Algade 18, 4000 Roskilde' }
-	},
-	{
-		slug: 'drejebaenken',
-		name: 'Drejebænken Keramik',
-		person: 'Astrid Juhl',
-		role: 'Keramiker',
-		city: 'København',
-		bio: 'Et keramikværksted på Nørrebro med seks drejeskiver, egen ovn og masser af ler under neglene.',
-		since: 2019,
-		initials: 'AJ',
-		gradient: ['#e2b48c', '#8c5a3c'],
-		giftCardPartner: { storeName: 'Drejebænken, Nørrebro', address: 'Jægersborggade 27, 2200 København N' }
-	},
-	{
-		slug: 'vejle-lysstoeberi',
-		name: 'Vejle Lysstøberi',
-		person: 'Mette Gram',
-		role: 'Lysestøber',
-		city: 'Vejle',
-		bio: 'Familiedrevet lysstøberi siden 1998. Mette lærer dig at støbe og dyppe lys af stearin og bivoks.',
-		since: 1998,
-		initials: 'MG',
-		gradient: ['#ffd29d', '#d9822b'],
-		giftCardPartner: { storeName: 'Vejle Lysstøberi', address: 'Søndergade 12, 7100 Vejle' }
-	},
-	{
 		slug: 'beatlab',
 		name: 'BeatLab Aarhus',
 		person: 'Oliver Strand',
@@ -263,41 +106,8 @@ export const hosts: Host[] = [
 		bio: 'Oliver har produceret for flere danske kunstnere og driver et lydstudie i Godsbanen.',
 		since: 2020,
 		initials: 'OS',
-		gradient: ['#bf5af2', '#2c1250']
-	},
-	{
-		slug: 'aalborg-guitarskole',
-		name: 'Aalborg Guitarskole',
-		person: 'Thomas Riis',
-		role: 'Guitarlærer',
-		city: 'Aalborg',
-		bio: 'Thomas er uddannet fra Det Jyske Musikkonservatorium og har undervist voksne begyndere i over ti år.',
-		since: 2012,
-		initials: 'TR',
-		gradient: ['#ff9f0a', '#7a3e00'],
-		giftCardPartner: { storeName: 'Aalborg Guitarskole', address: 'Boulevarden 15, 9000 Aalborg' }
-	},
-	{
-		slug: 'atelier-fjordlys',
-		name: 'Atelier Fjordlys',
-		person: 'Inger Bach',
-		role: 'Billedkunstner',
-		city: 'Roskilde',
-		bio: 'Inger maler akvarel med udsigt over Roskilde Fjord og har udstillet i hele Norden.',
-		since: 2015,
-		initials: 'IB',
-		gradient: ['#a0c4ff', '#5a7bd8']
-	},
-	{
-		slug: 'pladespilleren',
-		name: 'Pladespilleren DJ-skole',
-		person: 'Malik Hansen',
-		role: 'DJ',
-		city: 'København',
-		bio: 'Malik har spillet på klubber over hele Europa og lærer dig at mixe på både vinyl og controller.',
-		since: 2018,
-		initials: 'MH',
-		gradient: ['#ff375f', '#30004f']
+		gradient: ['#bf5af2', '#2c1250'],
+		giftCardPartner: { storeName: 'BeatLab, Godsbanen', address: 'Skovgaardsgade 3, 8000 Aarhus C' }
 	},
 	{
 		slug: 'digital-hverdag',
@@ -308,39 +118,7 @@ export const hosts: Host[] = [
 		bio: 'Louise hjælper virksomheder og privatpersoner med at bruge AI-værktøjer trygt og effektivt.',
 		since: 2023,
 		initials: 'LK',
-		gradient: ['#64d2ff', '#5e5ce6']
-	},
-	{
-		slug: 'webvaerkstedet',
-		name: 'Webværkstedet',
-		person: 'Mads Ebbesen',
-		role: 'Webudvikler',
-		city: 'Odense',
-		bio: 'Mads har bygget hjemmesider for over 200 små virksomheder og underviser i, hvordan du gør det selv.',
-		since: 2016,
-		initials: 'ME',
-		gradient: ['#34c759', '#007aff']
-	},
-	{
-		slug: 'livredderne',
-		name: 'Livredderne Førstehjælp',
-		person: 'Henrik Juul',
-		role: 'Ambulancebehandler',
-		city: 'Aarhus',
-		bio: 'Henrik har kørt ambulance i 18 år. Hans førstehjælpskurser er praktiske, rolige og fulde af virkelige eksempler.',
-		since: 2015,
-		initials: 'HJ',
-		gradient: ['#ff6961', '#b0002a']
-	},
-	{
-		slug: 'kodeskolen',
-		name: 'Kodeskolen',
-		person: 'Nanna Skov',
-		role: 'Softwareudvikler',
-		city: 'København',
-		bio: 'Nanna er senior softwareudvikler og har undervist hundredvis af voksne i deres første linjer kode.',
-		since: 2021,
-		initials: 'NS',
-		gradient: ['#0a84ff', '#1c1c1e']
+		gradient: ['#64d2ff', '#5e5ce6'],
+		giftCardPartner: { storeName: 'Digital Hverdag, Navitas', address: 'Inge Lehmanns Gade 10, 8000 Aarhus C' }
 	}
 ];

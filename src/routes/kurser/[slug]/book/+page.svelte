@@ -49,10 +49,10 @@
 	);
 	const formInvalid = $derived(participantErrors.some((error) => error.name || error.email) || cardInvalid || !acceptedTerms);
 
-	const methods: { id: PaymentMethod; label: string; hint: string }[] = [
-		{ id: 'mobilepay', label: 'MobilePay', hint: 'Godkend i appen' },
-		{ id: 'applepay', label: 'Apple Pay', hint: 'Betal med Face ID' },
-		{ id: 'card', label: 'Betalingskort', hint: 'Dankort, Visa, Mastercard' }
+	const methods: { id: PaymentMethod; label: string }[] = [
+		{ id: 'mobilepay', label: 'MobilePay' },
+		{ id: 'applepay', label: 'Apple Pay' },
+		{ id: 'card', label: 'Kort' }
 	];
 
 	function setCount(count: number) {
@@ -158,7 +158,6 @@
 							</button>
 						</div>
 					</div>
-					<p class="mt-1 text-[0.9rem] text-label-2">Navnet bruges på kursusbeviset, og billetten sendes til mailen.</p>
 					<div class="mt-5 space-y-5">
 						{#each participants as participant, index (index)}
 							<fieldset class="grid gap-3 sm:grid-cols-2">
@@ -175,7 +174,7 @@
 						{/each}
 					</div>
 					{#if submitted && participantErrors.some((error) => error.name || error.email)}
-						<p class="mt-3 text-[0.9rem] font-medium text-[#ff3b30]">Udfyld navn og en gyldig e-mail for alle deltagere.</p>
+						<p class="mt-3 text-[0.9rem] font-medium text-[#ff3b30]">Udfyld navn og e-mail.</p>
 					{/if}
 				</section>
 
@@ -194,17 +193,14 @@
 									{#if method.id === 'mobilepay'}
 										<span class="grid h-7 place-items-center rounded-lg bg-[#5a78ff] px-2 text-[0.75rem] font-bold text-white">MobilePay</span>
 									{:else if method.id === 'applepay'}
-										<span class="grid h-7 place-items-center rounded-lg bg-black px-2.5 text-[0.8rem] font-semibold text-white dark:bg-white dark:text-black">Apple Pay</span>
+										<span class="grid h-7 place-items-center rounded-lg bg-black px-2.5 text-[0.8rem] font-semibold text-white">Apple Pay</span>
 									{:else}
 										<span class="flex h-7 items-center gap-1">
 											<span class="rounded-md bg-[#e4002b] px-1.5 py-1 text-[0.6rem] font-bold text-white">DANKORT</span>
 											<span class="rounded-md bg-[#1a1f71] px-1.5 py-1 text-[0.6rem] font-bold text-white italic">VISA</span>
 										</span>
 									{/if}
-									<span>
-										<span class="block font-semibold">{method.label}</span>
-										<span class="text-[0.8rem] text-label-2">{method.hint}</span>
-									</span>
+									<span class="font-semibold">{method.label}</span>
 								</button>
 							{/each}
 						</div>
@@ -223,11 +219,11 @@
 									<span class="sr-only">Kontrolcifre</span>
 									<input bind:value={card.cvc} maxlength="4" inputmode="numeric" autocomplete="cc-csc" placeholder="CVC" class="field font-mono {submitted && card.cvc.length < 3 ? 'border-[#ff3b30]' : ''}" />
 								</label>
-								<p class="col-span-2 text-[0.8rem] text-label-3">Demo: brug fx 4571 0000 0000 0001 · 12/29 · 123</p>
+								<p class="col-span-2 text-[0.8rem] text-label-3">Demo: 4571 0000 0000 0001 · 12/29 · 123</p>
 							</div>
 						{/if}
 					{:else}
-						<p class="mt-3 rounded-2xl bg-success/10 p-4 font-medium text-success">Dit gavekort dækker hele beløbet — der skal ikke betales mere.</p>
+						<p class="mt-3 rounded-2xl bg-success/10 p-4 font-medium text-success">Gavekortet dækker hele beløbet.</p>
 					{/if}
 
 					<div class="mt-5 border-t border-separator pt-4">
@@ -242,7 +238,7 @@
 								<button type="button" onclick={applyGiftCard} class="btn btn-secondary">Anvend</button>
 							</div>
 							{#if giftCardError}<p class="mt-2 text-[0.9rem] text-[#ff3b30]">{giftCardError}</p>{/if}
-							<button type="button" onclick={() => (giftCardInput = SAMPLE_GIFT_CARD_CODE)} class="mt-2 text-[0.8rem] text-label-3 hover:text-label-2">Demo: brug koden {SAMPLE_GIFT_CARD_CODE}</button>
+							<button type="button" onclick={() => (giftCardInput = SAMPLE_GIFT_CARD_CODE)} class="mt-2 text-[0.8rem] text-label-3 hover:text-label-2">Demo: {SAMPLE_GIFT_CARD_CODE}</button>
 						{:else}
 							<button type="button" onclick={() => (giftCardOpen = true)} class="flex items-center gap-2 font-semibold text-accent"><Gift class="size-4" /> Har du et gavekort?</button>
 						{/if}
@@ -251,13 +247,13 @@
 
 				<label class="flex items-start gap-3 px-1 text-[0.92rem] text-label-2">
 					<input type="checkbox" bind:checked={acceptedTerms} class="mt-0.5 size-5 accent-[var(--brand)]" />
-					<span>Jeg accepterer Lezzonz' handelsbetingelser og afbestillingsregler. Gratis afbestilling indtil 48 timer før kursusstart.</span>
+					<span>Jeg accepterer handelsbetingelserne</span>
 				</label>
 			</div>
 
 			<aside class="lg:sticky lg:top-28 lg:self-start">
 				<div class="card overflow-hidden">
-					<CourseCover {course} class="h-36" emojiSize="3.6rem" />
+					<CourseCover {course} class="h-36" />
 					<div class="p-6">
 						<h2 class="text-[1.15rem] leading-snug font-semibold">{course.title}</h2>
 						<p class="mt-1 text-[0.9rem] text-label-2">{host.name}</p>
@@ -277,7 +273,6 @@
 						<button class="btn btn-brand mt-5 hidden w-full lg:flex" disabled={paymentStage !== 'idle'}>
 							<Lock class="size-4" />{payLabel}
 						</button>
-						<p class="mt-3 hidden text-center text-[0.78rem] text-label-3 lg:block">Demo — der trækkes ingen penge.</p>
 					</div>
 				</div>
 			</aside>

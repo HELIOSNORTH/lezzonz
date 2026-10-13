@@ -1,6 +1,6 @@
 # Lezzonz — demo website
 
-Updated 2026-10-13.
+Updated 2026-10-13 (light-only, less text, real photos, 10 courses).
 
 Lezzonz is a marketplace for **physical, in-person courses and workshops** in Denmark: pizza, flødeboller, gin tasting, bartending, racing, flower arranging, knitting, music, IT and more. Visitors get inspired, book and pay; hosts get registrations, payouts, gift cards and **automatic certificates of completion** (the original pain point came from racing courses, where proof of completion was hard to manage).
 
@@ -31,7 +31,7 @@ Deploy: upload `build/` to any static host. Unknown paths must serve `index.html
 | Ticket with QR, add-to-calendar (.ics), "Simulér gennemført" → certificates | `/booking/<id>` |
 | Certificate of completion: printable A4, verifiable ID + QR, LinkedIn add | `/bevis/LZ-4F7K-9QX2`, verify at `/bevis` |
 | Gift cards: amount / course / specific store, 4 designs, live preview, redeem | `/gavekort`, `/gavekort/GAVE-7HMK-Q3PD` |
-| In-store QR display (the 12 partner shops), printable A5 | `/display/pizzaskolen-aarhus` |
+| In-store QR display (one per partner shop), printable A5 | `/display/pizzaskolen-aarhus` |
 | Host profile | `/undervisere/<slug>` |
 | Customer area: upcoming, completed + certificates, gift cards, favourites, reset demo | `/mine` |
 | Host pitch, earnings calculator, application form | `/for-undervisere` |
@@ -44,8 +44,10 @@ Demo codes: gift card `GAVE-7HMK-Q3PD` (1.000 kr.), certificate `LZ-4F7K-9QX2`. 
 - **SvelteKit 3 + Svelte 5 runes + Tailwind CSS 4**, TypeScript, `adapter-static` SPA (`ssr = false`). CSR only, per owner preference; a static build also makes the demo trivially hostable. Details: [vite.config.ts-cvf.md](vite.config.ts-cvf.md).
 - **No backend, no network calls.** Catalogue is typed static data; user actions persist to `localStorage`. See [src/lib/demo-store.svelte.ts-cvf.md](src/lib/demo-store.svelte.ts-cvf.md) and [src/lib/catalog.ts-cvf.md](src/lib/catalog.ts-cvf.md).
 - **Dates are relative to today**, so the demo never looks stale.
-- **Design:** Apple-style (SF system font with Inter fallback, Liquid Glass header/tab bar, large radii, spring easing), light + dark via `prefers-color-scheme`, mobile-first with a floating tab bar. Tokens and why normalize/sanitize.css are not used: [src/app.css-cvf.md](src/app.css-cvf.md).
-- **Course art instead of photos** (gradient + emoji covers). Reason and how to switch to photography: [src/lib/components/CourseCover.svelte-cvf.md](src/lib/components/CourseCover.svelte-cvf.md).
+- **Design:** Apple-style (SF system font with Inter fallback, Liquid Glass header/tab bar, large radii, spring easing), **light mode only** (client request), mobile-first with a floating tab bar. Tokens and why normalize/sanitize.css are not used: [src/app.css-cvf.md](src/app.css-cvf.md).
+- **Minimal text** (client request): titles, prices, dates and buttons; no taglines, explainer paragraphs or FAQ. Keep it that way when adding UI.
+- **Real photos**, one per course, self-hosted in `static/photos/<slug>.webp` (Unsplash, 1400×1050). Sources and how to swap: [src/lib/components/CourseCover.svelte-cvf.md](src/lib/components/CourseCover.svelte-cvf.md).
+- **10 courses** (client request), one host each; every host is a gift-card partner with an in-store QR display.
 - **Names are fictional.** All hosts, people, addresses and numbers are invented; real-world inspirations from the brief (the Aarhus pizza teacher, a flødebolle shop) are represented by fictional stand-ins.
 - No code comments; context lives in `*-cvf.md` files next to the code.
 
@@ -54,7 +56,8 @@ Demo codes: gift card `GAVE-7HMK-Q3PD` (1.000 kr.), certificate `LZ-4F7K-9QX2`. 
 ```
 src/app.css                 design tokens + glass/button/field utilities
 src/lib/types.ts            domain model (Course, Session, Host, Booking, Certificate, GiftCard)
-src/lib/data/               categories, 30 hosts (12 gift-card partners), 31 courses, reviews
+src/lib/data/               categories, 10 hosts (all gift-card partners), 10 courses, reviews
+static/photos/              course photos (webp)
 src/lib/catalog.ts          queries over static data (filter/sort, relative session dates)
 src/lib/demo-store.svelte.ts  persisted demo state (bookings, certificates, gift cards, favourites)
 src/lib/format.ts           Danish formatting (da-DK prices, dates, durations)
@@ -74,7 +77,7 @@ These values are invented for realism and must be confirmed by the client before
 
 ## Resources and health
 
-Static site: ~0.9 MB build, no server process, no runtime memory/disk growth to monitor. `localStorage` usage is a few KB per visitor. A health check and resource monitoring become relevant with the backend (milestone M3).
+Static site: ~3.8 MB build (3 MB is photos), no server process, no runtime memory/disk growth to monitor. `localStorage` usage is a few KB per visitor. A health check and resource monitoring become relevant with the backend (milestone M3).
 
 ## Known demo limitations
 

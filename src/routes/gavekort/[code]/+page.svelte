@@ -46,7 +46,6 @@
 	<section class="mx-auto max-w-xl px-5 py-20 text-center">
 		<div class="text-[3.5rem]">🎁</div>
 		<h1 class="mt-3 text-2xl font-bold">Gavekortet blev ikke fundet</h1>
-		<p class="mt-2 text-label-2">Tjek koden, eller kontakt os, hvis du mener, der er en fejl.</p>
 		<a href="/gavekort" class="btn btn-primary mt-6">Til gavekort</a>
 	</section>
 {:else}
@@ -56,7 +55,6 @@
 				<Check class="size-8" strokeWidth={3} />
 			</div>
 			<h1 class="mt-4 font-display text-[2.3rem] font-bold tracking-[-0.035em]">Gavekortet er klar</h1>
-			<p class="mt-2 text-label-2">Del det med {card.recipient}, print det — eller vis QR-koden direkte fra skærmen.</p>
 		{:else}
 			<h1 class="font-display text-[2.3rem] font-bold tracking-[-0.035em]">{card.received ? `Et gavekort til dig, ${card.recipient}` : `Gavekort til ${card.recipient}`}</h1>
 			{#if card.sender}<p class="mt-2 text-label-2">Fra {card.sender}</p>{/if}

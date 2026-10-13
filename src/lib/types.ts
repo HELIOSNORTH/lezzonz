@@ -11,7 +11,6 @@ export type City = 'Aarhus' | 'København' | 'Odense' | 'Aalborg' | 'Vejle' | 'S
 export interface Category {
 	id: CategoryId;
 	name: string;
-	tagline: string;
 	emoji: string;
 	tint: string;
 }
@@ -40,7 +39,6 @@ export interface Course {
 	slug: string;
 	title: string;
 	summary: string;
-	description: string[];
 	category: CategoryId;
 	host: string;
 	city: City;
@@ -55,8 +53,6 @@ export interface Course {
 	learn: string[];
 	includes: string[];
 	bring?: string[];
-	emoji: string;
-	gradient: [string, string, string];
 	rating: number;
 	reviewCount: number;
 	sessions: Session[];

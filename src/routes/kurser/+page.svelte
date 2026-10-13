@@ -1,9 +1,8 @@
 <script lang="ts">
-	import { MapPin, Search, SlidersHorizontal, X } from '@lucide/svelte';
+	import { MapPin, Search, X } from '@lucide/svelte';
 	import { goto } from '$app/navigation';
 	import { page } from '$app/state';
-	import { categories, filterCourses, getCategory, type SortKey } from '#lib/catalog.ts';
-	import { cities } from '#lib/data/categories.ts';
+	import { activeCities, categories, filterCourses, getCategory, type SortKey } from '#lib/catalog.ts';
 	import CourseCard from '#lib/components/CourseCard.svelte';
 	import type { CategoryId, City } from '#lib/types.ts';
 
@@ -57,9 +56,6 @@
 		<h1 class="font-display text-[2.4rem] leading-tight font-bold tracking-[-0.04em] md:text-[3.2rem]">
 			{#if activeCategory}<span class="mr-2">{activeCategory.emoji}</span>{activeCategory.name}{:else}Udforsk kurser{/if}
 		</h1>
-		<p class="mt-1 text-[1.05rem] text-label-2 md:text-[1.15rem]">
-			{activeCategory?.tagline ?? 'Find dit næste hold — fra pizza og gin til banekørsel og keramik.'}
-		</p>
 	</div>
 
 	<div class="sticky top-[calc(env(safe-area-inset-top)+4.6rem)] z-30 -mx-5 mt-6 px-5 py-2 md:top-[5.4rem]">
@@ -71,7 +67,7 @@
 				value={query}
 				oninput={(event) => setParam('q', event.currentTarget.value)}
 				type="search"
-				placeholder="Søg efter kursus, underviser eller by"
+				placeholder="Søg"
 				class="h-full min-w-0 flex-1 bg-transparent text-[1.05rem] outline-none placeholder:text-label-3 [&::-webkit-search-cancel-button]:hidden"
 			/>
 			{#if query}
@@ -102,13 +98,12 @@
 	</div>
 
 	<div class="mt-4 flex flex-wrap items-center gap-2">
-		<span class="mr-1 hidden items-center gap-1.5 text-[0.9rem] text-label-2 sm:flex"><SlidersHorizontal class="size-4" /> Filtre</span>
 		<label class="relative flex h-10 items-center gap-1.5 rounded-full bg-surface pr-3 pl-3.5 text-[0.9rem] font-medium shadow-card">
 			<MapPin class="size-4 text-label-2" />
 			<span class="sr-only">By</span>
 			<select value={city ?? ''} onchange={(event) => setParam('by', event.currentTarget.value)} class="cursor-pointer bg-transparent pr-1 outline-none">
 				<option value="">Alle byer</option>
-				{#each cities as name (name)}<option value={name}>{name}</option>{/each}
+				{#each activeCities as name (name)}<option value={name}>{name}</option>{/each}
 			</select>
 		</label>
 		<label class="flex h-10 items-center rounded-full bg-surface pr-3 pl-3.5 text-[0.9rem] font-medium shadow-card">
@@ -138,9 +133,8 @@
 	{:else}
 		<div class="card mt-8 flex flex-col items-center px-6 py-16 text-center">
 			<div class="text-[3.5rem]">🔍</div>
-			<h2 class="mt-3 text-xl font-semibold">Ingen kurser matcher din søgning</h2>
-			<p class="mt-2 max-w-sm text-label-2">Prøv et andet ord, en anden by — eller se alle kurser.</p>
-			<button onclick={clearAll} class="btn btn-primary mt-6">Vis alle kurser</button>
+			<h2 class="mt-3 text-xl font-semibold">Ingen kurser fundet</h2>
+						<button onclick={clearAll} class="btn btn-primary mt-6">Vis alle kurser</button>
 		</div>
 	{/if}
 </section>

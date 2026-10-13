@@ -23,7 +23,7 @@
 			<span class="rounded-full ring-4 ring-white/40"><Avatar initials={host.initials} gradient={['#ffffff55', '#00000033']} size={96} /></span>
 			<div class="flex-1">
 				<h1 class="font-display text-[2.2rem] leading-tight font-bold tracking-[-0.035em] md:text-[2.8rem]">{host.name}</h1>
-				<p class="mt-1 text-white/85">{host.person} · {host.role} · Underviser siden {host.since}</p>
+				<p class="mt-1 text-white/85">{host.person}</p>
 				<div class="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-[0.95rem] text-white/90">
 					<span class="inline-flex items-center gap-1"><MapPin class="size-4" />{host.city}</span>
 					<Rating {rating} count={reviewCount} class="[&_.text-label-2]:text-white/75" />

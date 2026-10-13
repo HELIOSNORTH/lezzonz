@@ -1,9 +1,11 @@
-import { categories } from '#lib/data/categories.ts';
+import { categories, cities } from '#lib/data/categories.ts';
 import { courses } from '#lib/data/courses.ts';
 import { hosts } from '#lib/data/hosts.ts';
 import type { CategoryId, City, Course, DatedSession, Host } from '#lib/types.ts';
 
 export { categories, courses, hosts };
+
+export const activeCities = cities.filter((city) => courses.some((course) => course.city === city));
 
 export const getCourse = (slug: string) => courses.find((course) => course.slug === slug);
 export const getHost = (slug: string) => hosts.find((host) => host.slug === slug);

@@ -4,6 +4,7 @@
 	import { page } from '$app/state';
 	import { giftCardPartners } from '#lib/catalog.ts';
 	import { formatPrice } from '#lib/format.ts';
+	import CourseCover from '#lib/components/CourseCover.svelte';
 	import Logo from '#lib/components/Logo.svelte';
 	import QrCode from '#lib/components/QrCode.svelte';
 	import type { PageProps } from './$types';
@@ -24,7 +25,7 @@
 	</style>
 </svelte:head>
 
-<div class="min-h-dvh bg-[radial-gradient(80%_60%_at_50%_0%,#fff3e6,transparent),linear-gradient(#efe9e1,#d9d1c6)] px-4 py-6 print:bg-none print:p-0 dark:bg-[radial-gradient(80%_60%_at_50%_0%,#2a2018,transparent),linear-gradient(#141210,#0b0a09)]">
+<div class="min-h-dvh bg-[radial-gradient(80%_60%_at_50%_0%,#fff3e6,transparent),linear-gradient(#efe9e1,#d9d1c6)] px-4 py-6 print:bg-none print:p-0">
 	<div class="no-print mx-auto mb-6 flex max-w-xl flex-wrap items-center justify-between gap-3">
 		<a href="/gavekort#partnere" class="glass pressable inline-flex h-10 items-center gap-1 rounded-full pr-4 pl-3 text-[0.9rem] font-medium"><ChevronLeft class="size-4" />Partnere</a>
 		<div class="flex gap-2">
@@ -38,14 +39,11 @@
 		</div>
 	</div>
 
-	<p class="no-print mx-auto mb-5 max-w-xl text-center text-[0.9rem] text-label-2">
-		Sådan ser displayet ud ved kassen hos {host.giftCardPartner?.storeName ?? host.name}. Kunderne scanner koden og betaler på telefonen.
-	</p>
 
 	<div class="poster relative mx-auto aspect-[1/1.414] w-full max-w-md overflow-hidden rounded-[1.5rem] bg-[#fffdf8] text-[#1d1d1f] shadow-[0_40px_80px_-20px_rgb(0_0_0/0.35)] print:max-w-none print:rounded-none print:shadow-none">
-		<div class="absolute inset-x-0 top-0 h-[42%]" style:background="linear-gradient(150deg, {host.gradient[0]}, {host.gradient[1]})">
-			<div class="absolute inset-0 opacity-25 mix-blend-overlay" style="background-image: var(--noise)"></div>
-			<div class="absolute -right-[10%] -bottom-[18%] text-[9rem] opacity-90 drop-shadow-xl">{lead?.emoji ?? '🎁'}</div>
+		<div class="absolute inset-x-0 top-0 h-[42%]">
+			{#if lead}<CourseCover course={lead} eager class="size-full" />{/if}
+			<div class="absolute inset-0 bg-gradient-to-b from-black/55 via-black/25 to-transparent"></div>
 		</div>
 		<div class="relative flex h-full flex-col px-[9%] pt-[8%] pb-[7%]">
 			<div class="text-white">
@@ -59,7 +57,7 @@
 
 			<div class="mt-[6%] text-center">
 				<div class="text-[1.15rem] font-bold tracking-tight">Scan · Betal · Giv</div>
-				<div class="mt-1 text-[0.82rem] text-[#6e6e73]">Ret kameraet mod koden. Betal med MobilePay. Gavekortet er klar med det samme.</div>
+				
 			</div>
 
 			<div class="mt-[6%] flex items-center justify-between border-t border-black/10 pt-[4%]">

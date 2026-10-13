@@ -1,7 +1,7 @@
 import { dateFromOffset, getCourse } from '#lib/catalog.ts';
 import type { Booking, Certificate, GiftCard, GiftCardDesign, Participant, PaymentMethod } from '#lib/types.ts';
 
-const STORAGE_KEY = 'lezzonz-demo-v1';
+const STORAGE_KEY = 'lezzonz-demo-v2';
 const CODE_ALPHABET = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 
 interface DemoState {
@@ -31,11 +31,11 @@ function seedState(): DemoState {
 	const bookings: Booking[] = [
 		{
 			id: 'B-H7N2QK',
-			courseSlug: 'foerstehjaelp',
-			sessionId: 'hjerte-past',
-			startsAt: dateFromOffset(-23, '17:00').toISOString(),
+			courseSlug: 'ai-i-hverdagen',
+			sessionId: 'ai-past',
+			startsAt: dateFromOffset(-23, '09:00').toISOString(),
 			participants: [user],
-			total: 695,
+			total: 1295,
 			giftCardUsed: 0,
 			paymentMethod: 'mobilepay',
 			createdAt: daysAgo(40),
@@ -71,7 +71,7 @@ function seedState(): DemoState {
 		user,
 		bookings,
 		certificates: [
-			{ id: SAMPLE_CERTIFICATE_ID, bookingId: 'B-H7N2QK', courseSlug: 'foerstehjaelp', holderName: user.name, completedAt: bookings[0].startsAt },
+			{ id: SAMPLE_CERTIFICATE_ID, bookingId: 'B-H7N2QK', courseSlug: 'ai-i-hverdagen', holderName: user.name, completedAt: bookings[0].startsAt },
 			{ id: 'LZ-8TQM-2HXD', bookingId: 'B-W3GJ8T', courseSlug: 'gin-smagning', holderName: user.name, completedAt: bookings[1].startsAt },
 			{ id: 'LZ-C6RP-5WNA', bookingId: 'B-W3GJ8T', courseSlug: 'gin-smagning', holderName: partner.name, completedAt: bookings[1].startsAt }
 		],
@@ -88,7 +88,7 @@ function seedState(): DemoState {
 				received: true
 			}
 		],
-		favorites: ['napolitansk-pizza', 'banekursus', 'keramik-drejeskive']
+		favorites: ['napolitansk-pizza', 'banekursus', 'floedeboller']
 	};
 }
 

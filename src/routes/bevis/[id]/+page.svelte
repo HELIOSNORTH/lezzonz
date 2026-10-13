@@ -47,11 +47,8 @@
 {#if !certificate || !course || !host}
 	<section class="mx-auto max-w-xl px-5 py-16 text-center">
 		<div class="mx-auto grid size-20 place-items-center rounded-full bg-[#ff3b30]/10 text-[#ff3b30]"><ShieldAlert class="size-10" /></div>
-		<h1 class="mt-5 text-[1.9rem] font-bold tracking-tight">Beviset kunne ikke verificeres</h1>
-		<p class="mt-3 text-label-2">
-			Vi kan ikke finde et kursusbevis med koden <span class="font-mono font-semibold text-label">{page.params.id}</span>. Tjek, at koden er skrevet rigtigt.
-		</p>
-		<p class="mt-2 text-[0.85rem] text-label-3">I demoen findes beviser kun i den browser, hvor de er udstedt.</p>
+		<h1 class="mt-5 text-[1.9rem] font-bold tracking-tight">Bevis ikke fundet</h1>
+		<p class="mt-3 font-mono text-label-2">{page.params.id}</p>
 		<a href="/bevis" class="btn btn-primary mt-6">Prøv en anden kode</a>
 	</section>
 {:else}
@@ -60,7 +57,7 @@
 			<span class="grid size-11 shrink-0 place-items-center rounded-full bg-success text-white"><BadgeCheck class="size-6" /></span>
 			<div class="flex-1">
 				<div class="font-semibold">Ægte kursusbevis</div>
-				<div class="text-[0.9rem] text-label-2">Udstedt af Lezzonz på vegne af {host.name} · ID {certificate.id}</div>
+				<div class="font-mono text-[0.85rem] text-label-2">{certificate.id}</div>
 			</div>
 			<div class="flex flex-wrap gap-2">
 				<button onclick={() => window.print()} class="btn btn-secondary h-10 px-4 text-[0.9rem]"><Printer class="size-4" />Gem som PDF</button>
@@ -113,9 +110,6 @@
 			</div>
 		</div>
 
-		<p class="no-print mt-6 text-center text-[0.9rem] text-label-2">
-			Alle kan verificere beviset på <a href="/bevis" class="font-medium text-accent hover:underline">lezzonz.dk/bevis</a>
-		</p>
 	</section>
 {/if}
 

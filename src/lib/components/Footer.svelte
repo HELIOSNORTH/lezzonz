@@ -9,9 +9,6 @@
 	<div class="mx-auto grid max-w-6xl gap-10 px-5 pt-12 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
 		<div>
 			<Logo />
-			<p class="mt-3 max-w-xs text-[0.95rem] leading-relaxed text-label-2">
-				Håndplukkede kurser og workshops hos dygtige, lokale undervisere. Book, mød op og få dit kursusbevis.
-			</p>
 		</div>
 		<div>
 			<h3 class="text-[0.85rem] font-semibold">Udforsk</h3>
